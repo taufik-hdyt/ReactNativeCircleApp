@@ -22,7 +22,7 @@ interface IProps{
   user?: IUser
   likes?: ILike[]
   replies?: IReplies[]
-
+  isLine?: boolean
 }
 
 // export interface IThreads {
@@ -36,7 +36,7 @@ interface IProps{
 //   replies: IReplies[]
 // }
 
-export default function ThreadItem({content,createdAt,id,image,likes,replies,updateAt,user}:IProps) {
+export default function ThreadItem({content,createdAt,id,image,likes,replies,updateAt,user,isLine}:IProps) {
   return (
     <Box>
       <HStack space="2">
@@ -76,7 +76,9 @@ export default function ThreadItem({content,createdAt,id,image,likes,replies,upd
           </HStack>
         </Box>
       </HStack>
-      <Divider mt={4} color="gray.200" />
+      {
+        !isLine && <Divider mt={4} color="gray.200" />
+      }
     </Box>
   );
 }
